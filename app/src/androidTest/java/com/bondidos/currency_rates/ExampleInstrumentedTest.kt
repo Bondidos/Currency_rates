@@ -1,4 +1,4 @@
-package com.bondidos.currencycourses
+package com.bondidos.currency_rates
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

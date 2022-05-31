@@ -1,4 +1,4 @@
-package com.bondidos.currencycourses
+package com.bondidos.currency_rates
 
 import org.junit.Test
 
