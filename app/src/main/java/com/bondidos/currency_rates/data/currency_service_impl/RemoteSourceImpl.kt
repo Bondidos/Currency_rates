@@ -11,7 +11,9 @@ import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import javax.inject.Inject
 
-class RemoteSourceImpl @Inject constructor(private val currencyService: CurrencyService) :
+class RemoteSourceImpl @Inject constructor(
+    private val currencyService: CurrencyService
+    ) :
     RemoteSource {
 
     private val apiHelper = ApiHelper()

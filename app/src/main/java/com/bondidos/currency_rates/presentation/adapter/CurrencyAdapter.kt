@@ -21,7 +21,8 @@ class CurrencyAdapter : RecyclerView.Adapter<CurrencyViewHolder>() {
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CurrencyViewHolder {
-        val binding = CurrencyItemBinding.inflate(LayoutInflater.from(parent.context))
+        val binding =
+            CurrencyItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return CurrencyViewHolder(binding)
     }
 
@@ -41,7 +42,7 @@ class CurrencyViewHolder(private val binding: CurrencyItemBinding) :
             currencyName.text = item.abbreviation
             currencyExchangeCount.text = "${item.scale} ${item.name}"
             actualRate.text = item.todayRate.toString()
-            alternativeRate.text = item.alternativeRate.toString()
+            previousRate.text = item.alternativeRate.toString()
         }
     }
 }
