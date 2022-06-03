@@ -7,11 +7,15 @@ import android.view.View
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.bondidos.currency_rates.R
 import com.bondidos.currency_rates.databinding.FragmentMainBinding
 import com.bondidos.currency_rates.di.appComponent
 import com.bondidos.currency_rates.presentation.State
+import com.bondidos.currency_rates.presentation.adapter.CurrencyAdapter
 import javax.inject.Inject
 
 class MainFragment : Fragment(R.layout.fragment_main) {
@@ -20,6 +24,8 @@ class MainFragment : Fragment(R.layout.fragment_main) {
     lateinit var viewModelFactory: MainViewModelFactory
     private val binding by viewBinding(FragmentMainBinding::bind)
     private val viewModel: MainViewModel by viewModels { viewModelFactory }
+    private val currencyAdapter: CurrencyAdapter by lazy { CurrencyAdapter() }
+
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -33,7 +39,11 @@ class MainFragment : Fragment(R.layout.fragment_main) {
     }
 
     private fun initRecyclerView() {
-        TODO("Not yet implemented")
+        binding.recycler.apply {
+            layoutManager = LinearLayoutManager(this.context)
+            addItemDecoration(DividerItemDecoration(this.context,DividerItemDecoration.VERTICAL))
+            adapter = currencyAdapter
+        }
     }
 
     private fun initStateListening() {
@@ -43,7 +53,7 @@ class MainFragment : Fragment(R.layout.fragment_main) {
                     is State.Loading -> binding.progressBar.isVisible = true
                     is State.Success -> {
                         binding.progressBar.isVisible = false
-                        //todo set fata to the recycler
+                        currencyAdapter.setData(state.data)
                     }
                     is State.Error ->{
                         //todo make snackBar
