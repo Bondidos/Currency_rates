@@ -1,99 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?><!--<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="0dp"
-    android:layout_height="0dp"
-    android:backgroundTint="#C0CEF6"
-    android:elevation="24dp">-->
-
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:orientation="horizontal">
 
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:orientation="vertical">
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/currencyName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="start"
-            android:text="left 1"
-            android:textSize="18sp" />
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/currencyExchangeCount"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="start"
-            android:text="left 2" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:gravity=""
-        android:orientation="horizontal">
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/alternativeRate"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="cur 1"
-            android:textSize="18sp"
-            tools:ignore="NestedWeights" />
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/actualRate"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="cur 2"
-            android:textSize="18sp" />
-
-    </LinearLayout>
-</LinearLayout><!--</com.google.android.material.card.MaterialCardView>-->
-
-
-    <!--
-
-    <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="5dp"
         android:backgroundTint="#C0CEF6"
         android:elevation="24dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_height="wrap_content"
-            android:layout_width="m">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/currencyName"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:gravity="start"
-                android:paddingStart="15dp"
-                android:paddingEnd="15dp"
-                android:text="left 1"
+                android:text="@string/text_field"
                 android:textSize="18sp"
                 app:layout_constraintBottom_toTopOf="@id/currencyExchangeCount"
                 app:layout_constraintEnd_toStartOf="@id/alternativeRate"
-                app:layout_constraintHorizontal_weight="0.5"
+                app:layout_constraintHorizontal_weight="2"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -102,12 +34,10 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:gravity="start"
-                android:paddingStart="15dp"
-                android:paddingEnd="15dp"
-                android:text="left 2"
+                android:text="@string/text_field"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/alternativeRate"
-                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintEnd_toEndOf="@id/currencyName"
+                app:layout_constraintHorizontal_weight="2"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/currencyName" />
 
@@ -116,13 +46,11 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:paddingStart="15dp"
-                android:paddingEnd="15dp"
-                android:text="cur 1"
+                android:text="@string/text_field"
                 android:textSize="18sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/actualRate"
-                app:layout_constraintHorizontal_weight="0.25"
+                app:layout_constraintHorizontal_weight="1"
                 app:layout_constraintStart_toEndOf="@id/currencyName"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -131,29 +59,14 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:paddingStart="15dp"
-                android:paddingEnd="15dp"
-                android:text="cur 2"
+                android:text="@string/text_field"
                 android:textSize="18sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_weight="0.25"
+                app:layout_constraintHorizontal_weight="1"
                 app:layout_constraintStart_toEndOf="@id/alternativeRate"
                 app:layout_constraintTop_toTopOf="parent" />
-            &lt;!&ndash;
-
-                    <androidx.constraintlayout.widget.Guideline
-                        android:id="@+id/guideline"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintGuide_begin="400dp"
-                        app:layout_constraintHorizontal_bias="0.5"
-                        app:layout_constraintStart_toStartOf="parent" />
-            &ndash;&gt;
-
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </com.google.android.material.card.MaterialCardView>-->
+    </com.google.android.material.card.MaterialCardView>
+</RelativeLayout>

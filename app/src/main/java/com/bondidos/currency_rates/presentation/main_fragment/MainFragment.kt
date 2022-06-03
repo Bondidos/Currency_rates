@@ -7,6 +7,7 @@ import android.view.View
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -34,8 +35,16 @@ class MainFragment : Fragment(R.layout.fragment_main) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setListeners()
         initRecyclerView()
         initStateListening()
+    }
+
+    private fun setListeners() {
+        binding.appbar.setOnMenuItemClickListener {
+            findNavController().navigate(R.id.action_mainFragment_to_settingsFragment)
+            return@setOnMenuItemClickListener true
+        }
     }
 
     private fun initRecyclerView() {
